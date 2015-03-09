@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
 
 resources :songs do
-	:comments only: [new, edit, destroy]
-	:likes only: [new, destroy]
+	resources :comments, only: [:new, :edit, :destroy]
+	resources:likes, only: [:collection_of]
 end
 
 
