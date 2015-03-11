@@ -1,5 +1,5 @@
 class Song < ActiveRecord::Base
-	has_many :comments
-	has_many :likes
+	has_many :comment
+	has_many :like
 	validates :title, :embed_code, presence: true
 end

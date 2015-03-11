@@ -1,0 +1,14 @@
+<h1>Song cloud</h1>
+<%controller.songs.each do |song|%>
+
+	<h2><%= song.title %></h2>
+	<%= song.embed_code.html_safe%><br>
+	<small><% render 'like_button' %></small>
+	<%= link_to 'Like', 'like', class: 'like', :song_id => song.id, format: :js, method: :put, remote: true %>
+	<h3>Comments</h3><br>
+	<p><%song.comment.all.each do |comment|%>
+		<%= comment.body %>
+	</p>
+	<%end%>
+	<p><%= render :partial => 'comments/new', object: Comment.new, as: 'comment' %></p>
+<%end%>

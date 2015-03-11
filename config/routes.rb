@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-
+put '/like' => 'songs#like'
 resources :songs do
-	resources :comments, only: [:new, :edit, :destroy]
+	resources :comments, only: [:new, :delete]
 	resources:likes, only: [:collection_of]
 end
 
